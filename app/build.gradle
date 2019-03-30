@@ -31,8 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-//    implementation "com.heng.router:hrouter-api:${VERSION_NAME}"
-    implementation project(path: ':HrouterApi')
-//    kapt "com.heng.router:hrouter-comiler:${VERSION_NAME}"
-    kapt project(':HRouterComiler')
+//    implementation project(path: ':HrouterApi')
+    implementation 'com.github.Jiaoshichun.HRouter:HrouterApi:1.0'
+    kapt 'com.github.Jiaoshichun.HRouter:HRouterComiler:1.0'
+//    kapt project(':HRouterComiler')
 }

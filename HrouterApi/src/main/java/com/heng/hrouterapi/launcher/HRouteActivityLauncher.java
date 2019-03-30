@@ -69,7 +69,9 @@ public class HRouteActivityLauncher implements HRouterLauncher {
                 ActivityResultDispatcher.getInstance().addResultCallBack(this.context,
                         hRouterBundle.getActivityResultCallBack());
             }
-            activity.overridePendingTransition(hRouterBundle.getEnterAnim(), hRouterBundle.getExitAnim());
+            if (hRouterBundle.getEnterAnim() != 0 && hRouterBundle.getExitAnim() != 0) {
+                activity.overridePendingTransition(hRouterBundle.getEnterAnim(), hRouterBundle.getExitAnim());
+            }
         } else {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);

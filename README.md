@@ -2,14 +2,23 @@
 通过在Activity添加注解，生成路由表，支持配置拦截器，ActivityResult回调处理，链式调用
 可解析路由地址中的参数 以String方式获取，支持全局拦截器，路由成功与否回调
 #配置
+
+在根项目的build.gradle增加以下配置
+```
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+```
 在对应模块下的build.gradle中增加以下配置
 ```
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation "com.heng.router:hrouter-api:1.0.6"
-    kapt "com.heng.router:hrouter-comiler:1.0.6"
+    implementation 'com.github.Jiaoshichun.HRouter:HrouterApi:1.0'
+    kapt 'com.github.Jiaoshichun.HRouter:HRouterComiler:1.0'
     }
 ```
 # 初始化
@@ -63,5 +72,22 @@ HRouter.create("msxfchat://main").open(this)
 也可修改默认的权限过程 通过
 ```
 HRouterConfiguration.get().setPermissionProcessor()
+```
+# 通过Action进行跳转
+使用方式
+```
+            Router.createByAction(MediaStore.ACTION_IMAGE_CAPTURE)
+                    .addPermission(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA
+                    )
+                    .addExtra(
+                        MediaStore.EXTRA_OUTPUT, AndPermission.getFileUri(
+                            this, File(Environment.getExternalStorageDirectory(), "hrouter.jpg")
+                        )
+                    )
+                    .requestCode(110)
+                    .open(this)
 ```
 
