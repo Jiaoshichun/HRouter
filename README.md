@@ -1,7 +1,7 @@
 # Android路由跳转
 通过在Activity添加注解，生成路由表，支持配置拦截器，ActivityResult回调处理，链式调用
 可解析路由地址中的参数 以String方式获取，支持全局拦截器，路由成功与否回调
-#配置
+# 配置
 
 在根项目的build.gradle增加以下配置
 ```
