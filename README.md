@@ -42,12 +42,12 @@ public class MyApplication extends Application {
 # 在Activity上添加注解
 ```
 @HRouterInterceptors(Intercept::class)//配置拦截器  Intercept 需要实现HRouterInterceptor 接口
-@HRouterRule("msxfchat://mainActivity","msxfchat://main") //一个activity可配置多个url 但是一个Url只能对应一个Activity
+@HRouterRule("hrouter://mainActivity","hrouter://main") //一个activity可配置多个url 但是一个Url只能对应一个Activity
 class MainActivity : BaseActivity(){} 
 ```
 # 路由跳转
 ```
-HRouter.create("msxfchat://main").open(this)
+HRouter.create("hrouter://main").open(this)
 ```
 # 处理ActivityResult
 需在BaseActivity中增加以下配置
@@ -58,7 +58,7 @@ HRouter.create("msxfchat://main").open(this)
     }
 ```
 ```
- HRouter.create(""msxfchat://main").setResultCallBack { requestCode, resultCode, data ->
+ HRouter.create(""hrouter://main").setResultCallBack { requestCode, resultCode, data ->
                  //处理ActivityResult结果
                }.open(this)
 ```
